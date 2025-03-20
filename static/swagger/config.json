@@ -1,0 +1,92 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Flask API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000"
+    },
+    {
+      "url": "http://localhost:5000"
+    }
+  ],
+  "tags": [
+    {
+      "name": "model",
+      "description": "CRUD Operations"
+    }
+  ],
+  "paths": {
+    "/predict": {
+      "post": {
+        "tags": [
+          "model"
+        ],
+        "summary": "Model Predict on Loan Approval",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "LoanAmount": {
+                    "type": "number",
+                    "example": 28236
+                  },
+                  "LoanCurrency": {
+                    "type": "string",
+                    "example": "usdt"
+                  },
+                  "LoanDuration": {
+                    "type": "number",
+                    "example": 36
+                  },
+                  "TotalLoanCollatoralAmount": {
+                    "type": "number",
+                    "example": 62871
+                  },
+                  "LoanStartDates": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2018-01-01"
+                  },
+                  "InstallmentDuration": {
+                    "type": "number",
+                    "example": 4
+                  },
+                  "BaseInterestRate": {
+                    "type": "long",
+                    "example": 0.088236
+                  },
+                  "InterestRate": {
+                    "type": "long",
+                    "example": 0.08814268491527529
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Model Predicted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
