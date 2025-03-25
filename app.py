@@ -13,7 +13,7 @@ from resources.modelResource import modelsPOSTResource
 application = Flask(__name__)
 app = application
 app.config['PROPAGATE_EXCEPTIONS'] = True
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 api = Api(app, prefix=prefix, catch_all_404s=True)
 
 # ============================================
