@@ -45,9 +45,8 @@ data = {
     'LoanCurrency': np.random.choice(['usdc', 'eth'], num_samples,p=[0.7,0.3]),
     'LoanDuration': np.random.choice([12, 24, 36, 48, 60, 72, 84, 96, 108, 120], num_samples, p=[0.05, 0.1, 0.2, 0.2, 0.2, 0.1, 0.05, 0.05, 0.025, 0.025]),
     'LoanPurpose': np.random.choice(['Property', 'Automobile', 'Education', 'Debt Consolidation', 'Medical', 'Personal', 'Other'], num_samples, p=[0.25, 0.2, 0.15, 0.15, 0.1, 0.1, 0.05]),
-    'TotalLoanCollatoralAmount': np.random.lognormal(11, 1, num_samples).astype(int),
-    'LoanStartDates': application_dates
-}
+    'TotalLoanCollatoralAmount': np.random.lognormal(11, 1, num_samples).astype(int)
+    }
 
 df = pd.DataFrame(data)
 
@@ -67,7 +66,7 @@ def loan_approval_rule(row):
         score -= (LCR - 0.5) * 2  # Favor lower LCR values (adjust scaling as needed)
     
     # Seasonal factor (higher approval rates in spring/summer)
-    month = row['LoanStartDates'].month
+    month = row['LoanStartDate'].month
     score -= 0.1 if 3 <= month <= 8 else 0
     
     # Age factor (slight preference for middle-aged applicants)

@@ -63,7 +63,7 @@
                     "type": "number",
                     "example": 62871
                   },
-                  "LoanStartDates": {
+                  "LoanStartDate": {
                     "type": "string",
                     "format": "date",
                     "example": "2018-01-01"

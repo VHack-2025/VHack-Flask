@@ -17,15 +17,15 @@ class modelsPOSTResource(Resource):
             'LoanDuration': [data['LoanDuration']],
             'LoanPurpose': [data['LoanPurpose']],
             'TotalLoanCollatoralAmount': [data['TotalLoanCollatoralAmount']],
-            'LoanStartDates': [data['LoanStartDates']],
+            'LoanStartDate': [data['LoanStartDate']],
             'InstallmentDuration': [data['InstallmentDuration']],
             'BaseInterestRate': [data['BaseInterestRate']],
             'InterestRate': [data['InterestRate']]
         }
         df = pd.DataFrame(data=df_json)
         df['LoanCurrency'] = df['LoanCurrency'].apply(lambda x: 1 if x == "eth" else -1)
-        df['LoanStartDates'] = pd.to_datetime(df['LoanStartDates'])
-        df['LoanStartDates'] = df['LoanStartDates'].astype('int64')
+        df['LoanStartDate'] = pd.to_datetime(df['LoanStartDate'])
+        df['LoanStartDate'] = df['LoanStartDate'].astype('int64')
         
         df.loc[df['EmploymentStatus'] == "Employed", 'EmploymentStatus'] = 0
         df.loc[df['EmploymentStatus'] == "Self-Employed", 'EmploymentStatus'] = 1
