@@ -7,4 +7,4 @@
 4. `python3 app.py`
 
 ## Documentation
-`http://<domain>:<port>/swagger-config`. Or jus being on the main page itself will redirect you to the documentation page
+`https://<domain>:<port>/swagger-config`. Or jus being on the main page itself will redirect you to the documentation page
