@@ -9,7 +9,7 @@
       "url": "http://localhost:5000"
     },
     {
-      "url": "https://vhack-flask-production.up.railway.app"
+      "url": "https://vhack-flask-production.up.railway.app:5000"
     }
   ],
   "tags": [
