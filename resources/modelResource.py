@@ -35,7 +35,7 @@ class modelsPOSTResource(Resource):
         df.loc[df['EducationLevel'] == "No Education", 'EducationLevel'] = 0
         df.loc[df['EducationLevel'] == "Secondary", 'EducationLevel'] = 1
         df.loc[df['EducationLevel'] == "Bachelor", 'EducationLevel'] = 2
-        df.loc[df['EducationLevel'] == "Master", 'EducationLevel'] = 3
+        df.loc[df['EducationLevel'] == "Masters", 'EducationLevel'] = 3
         df.loc[df['EducationLevel'] == "Doctorate", 'EducationLevel'] = 4
         
         df.loc[df['LoanPurpose'] == "Property", 'LoanPurpose'] = 0
